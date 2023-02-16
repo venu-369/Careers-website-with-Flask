@@ -25,7 +25,7 @@ JOBS =[
     'id': 4,
     'title': "Back-end Engineer",
     'location': 'Manchester, Uk',
-    'salary': '£600000'
+    'salary': '£700000'
   },
 ]
 
