@@ -11,22 +11,29 @@
         height: 360px;
         width: 100%;
         object-fit: cover;
+        margin-bottom: 16px;
         
       }
     </style>
   </head>
   <body>
+    {% include 'nav.html' %}
+    <img class="img-fluid" id="banner" src="https://careers-website-with-flask.venugopal11.repl.co/static/banner.jpg"  >
     <div class="container">
     <h1 class="text-center mt-4 mb-4">{{company_name}} Careers</h1>
-    <img class="img-fluid" id="banner" src="https://careers-website-with-flask.venugopal11.repl.co/static/banner.jpg"  >
-    
-    <h2 class="text-center mt-4 mb-3">About V</h2>
+    <div class="row" style="margin-bottom:16px">
+      <div class="col-md-6"
     <p class="lead" >
       Welcome to V Careers, a leading career website that connects job seekers with some of the most exciting and rewarding opportunities in the market.
 
 At V Careers, we believe that a fulfilling career is one of the most important aspects of a person's life. We're dedicated to helping job seekers find their dream job by providing them with a user-friendly platform that matches them with the right opportunities based on their skills, experience, and career goals.
 
     </p>
+      </div>
+      <div class="d-none d-md-block col-6"> 
+      <img src="/static/people.jpeg"  style="height:320px; border-radius:4px;">
+      </div>
+    </div>
     <h2 class="text-center mt-2 mb-4">Job Openings</h2>
     <p >
       {% for job in jobs %}
@@ -34,11 +41,12 @@ At V Careers, we believe that a fulfilling career is one of the most important a
       {% endfor %}
       </p>
     <div class="text-center" >
-    <button class="btn btn-primary btn-lg">Contact Us</button>
-      <p class="mt-4">Copyright 2023, V</p>
+    <a class="btn btn-primary btn-lg" href="mailto:venu2699@gmail.com?subject=Question%20about%20job%20openings&body=My%20name%3A%20%3Cyour%20name%3E%0D%0A%0D%0AMy%20Question%3A%20%3Center%20your%20question%20here%3E">Contact Us</a>
+      
     </div>
   </div>
     
   </body>
+  {% include 'footer.html' %}
   
 </html>
