@@ -1,5 +1,5 @@
 from sqlalchemy import create_engine, text
-import os
+import os, json
 
 db_connection_String = os.environ['DB_CONNECTION_STRING']
 
@@ -36,3 +36,18 @@ def load_jobs_from_db():
       }
       jobs.append(row_dict)
     return jobs
+
+
+def load_job_from_db(id):
+  with engine.connect() as conn:
+    result = conn.execute(text("SELECT * FROM jobs WHERE id = :id"),
+                          {'id': id})
+    row = result.first()
+    if row is None:
+      return None
+    else:
+      row_dict = {
+        col_name: convert_value(value)
+        for col_name, value in zip(result.keys(), row)
+      }
+      return row_dict
